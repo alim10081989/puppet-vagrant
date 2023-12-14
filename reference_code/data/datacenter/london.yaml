@@ -1,0 +1,20 @@
+motd::content: |
+  Welcome
+  Hostname = %{::networking.fqdn}
+  Server is running in %{::datacenter}
+  Server is maintained by London team. Please contact lon@example.com
+
+web_url: "https://london-%{ lookup('sitename') }"
+
+system::packages:
+  - htop
+  - chrony
+  - vim
+
+apache::sites:
+  "london-www.example.com":
+     port: 80
+     docroot: /var/www/london-www.com
+     serveradmin: london@example.com
+  "www.enviatics.com":
+     port: 81

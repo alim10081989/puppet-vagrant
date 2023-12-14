@@ -1,0 +1,5 @@
+motd::content: |
+  Welcome
+  Hostname = %{::networking.fqdn}
+  Server is running in %{::datacenter}
+  Server is maintained by New York team. Please contact newyork@example.com

@@ -1,0 +1,4 @@
+<% | String $os_name, String $os_major, String $os_minor, String $server_name | -%>  ## Parameters ##
+Welcome to Puppet Power Training.
+
+You are logged into <%= $server_name %>, running <%= "${os_name} ${os_major}.${os_minor}" %>. ## Values ##

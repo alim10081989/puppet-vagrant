@@ -1,0 +1,38 @@
+lookup_options:
+  apache::sites:
+    merge: deep
+
+greeting: Hello and welcome to hiera training
+
+motd::content: |
+  Welcome
+  Server managed by sysadmin@example.com
+people:
+  - craig
+  - susan
+  - bob
+  - keith
+  - lucy
+
+httpd::port: 80
+httpd::docroot: "/var/www/html"
+
+sysadmins: "%{ alias('people') }"
+sitename: "app.corp.com"
+
+system::packages:
+  - vim
+  - git
+  - ruby
+
+apache::sites:
+   "www.example.com":
+      port: 80
+      docroot: /var/www/example.com
+      serveradmin: webserver@example.com
+   "www.enviatics.com":
+      port: 80
+      docroot: /var/www/enviatics.com
+      serveradmin: webserver@enviatics.com
+
+mysql::password: ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAoXFAZHipiQBLAaQQ+UI+l4aF5mbx8bJV+dzeZEwJu8JmvdO8kcflv6U/nKNeDaRT8EEBFM6eRSWsagLIJ6ayXKlTigu4/CksHB304cX3rSoZHqlF4ZVTp9bTlhbnut1VeP2sD0xcXxdUBeOUa31FcHb9xHBep2Sbj9W9ztif6VfktPGjGQDvEhxLZNdJG2gN+WRs0pN8us29EXol6m5thtcXYIkUeCW2T0ukUCei3mVLtnnGNN3TJJMew8GpR1SFmzFAFnQ9Qm2KFOt1liymGRWhC9d5ZbmIxmkudL74KAZACwWn7LPG5zlYGb7xya4hGxum11Ejhe641+EWaU4WcTBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBDgj6fwN1ONILPn+aatelKtgCD4xxixnpU6AFrnu64Dehjehx/7vvZ6Y1jtfzciI9MrRQ==]
